@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+    dados:    
+        build: ./microservicio-dados/
+        container_name: dadosserver
+        ports:
+            - "8081:8080"    
+    torneo:    
+        build: ./microservicio-torneo/torneo
+        container_name: torneoserver
+        ports:
+            - "8080:8080"
+    db:
+        image: mysql:latest        
+        restart: always        
+        command: --default-authentication-plugin=mysql_native_password        
+        container_name: dbserver
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: torneo_sa    
+        #ports:
+        #    - "3306:3306"           
+        volumes:
+            - "./microservicio-torneo/database/setup.sql:/docker-entrypoint-initdb.d/1.sql"
+            - ./microservicio-torneo/database/mysql/data:/var/lib/mysql
