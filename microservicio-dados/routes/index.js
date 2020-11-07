@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var MAX_VAL = 10;
-var MIN_VAL = 0;
+var MAX_VAL = 6;
+var MIN_VAL = 1;
 /* GET home page. */
 router.get('/tirar/:cantidad', function(req, res, next) 
 {

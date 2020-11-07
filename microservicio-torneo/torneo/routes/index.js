@@ -12,7 +12,7 @@ function inicarConexion()
   {
     pool = mysql.createPool({
       connectionLimit : 10,
-      host      : 'dbserver',
+      host      : 'dbserver-torneo',
       user      : 'root',
       password  : 'root' ,
       database  : 'torneo_sa'  
